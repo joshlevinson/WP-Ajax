@@ -1,0 +1,15 @@
+{
+    "name": "joshlevinson/wp-ajax",
+    "authors": [
+        {
+            "name": "Josh Levinson",
+            "email": "joshalevinson@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TenUp\\WP_Ajax\\": "src"
+        }
+    }
+}
