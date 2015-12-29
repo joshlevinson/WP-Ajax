@@ -14,16 +14,16 @@ class Handler {
 		$this->responder = $r;
 	}
 
-	function add_process( $action, $process, $args ) {
+	function add_process( $action, $process, $args = [] ) {
 
 		$args = wp_parse_args( $args, [
 			'method' => 'POST',
-			'nopriv' => false,
+			'require_login' => true,
 		] );
 
 
 		$privs = [ 'wp_ajax_'];
-		if ( $args['nopriv'] ) {
+		if ( ! $args['require_login'] ) {
 			$privs[] = 'wp_ajax_nopriv_';
 		}
 
@@ -73,6 +73,8 @@ class Handler {
 		}
 
 		$this->check->add( $r );
+
+		return $this;
 
 	}
 
